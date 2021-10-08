@@ -6,7 +6,7 @@
 
 # Sobre o Projeto 👨🏻‍💻
 
-<h4>ATV2-UC04 projeto MVC com banco de dados</h4>
+<h4>ATV2-UC04 projeto MVC com banco de dados em MYSQL</h4>
 
 <br>
 
