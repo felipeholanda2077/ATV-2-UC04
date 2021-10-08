@@ -24,11 +24,13 @@
   As seguintes ferramentas foram usadas na construção do projeto:
 
   - [x] **C#**
+  - [x] **MYSQL**
 
   #### Ferramentas
 
   - [**VS CODE**](https://code.visualstudio.com/)
   - [**.NET**](https://dotnet.microsoft.com/download)
+  - 
 
 <br>
 
