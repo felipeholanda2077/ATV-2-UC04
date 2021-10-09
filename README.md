@@ -12,7 +12,6 @@
 
 <p aling="center">Esse projeto...</p>
 <a href="#Sobre o Projeto">Sobre</a> •
-<a href="#Imagem">Imagem</a> •
 <a href="#Tecnologias">Tecnologias</a> •
 <a href="#Ferramentas">Ferramentas</a>
 
