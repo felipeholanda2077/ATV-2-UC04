@@ -18,6 +18,8 @@
 
   - [x] **C#**
   - [x] **MYSQL**
+  - [x] **HTML**
+  - [x] **CSS**
 
   #### Ferramentas
 
