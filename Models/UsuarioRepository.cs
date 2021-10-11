@@ -22,6 +22,42 @@ namespace ATV_2_UC4.Models
             Conexao.Close();
         }
 
+        public Usuario ValidarLogin(Usuario user){
+          
+          MySqlConnection Conexao = new MySqlConnection(DadosConexao);
+          Conexao.Open();
+          
+          String Query = "select * from Usuario where Login=@Login and Senha=@Senha";
+
+          MySqlCommand Comando = new MySqlCommand(Query,Conexao);
+
+          Comando.Parameters.AddWithValue("@Login",user.Login);
+          Comando.Parameters.AddWithValue("@Senha",user.Senha);
+
+          MySqlDataReader Reader = Comando.ExecuteReader();
+
+          Usuario UsuarioEncontrado = null;
+          if (Reader.Read()){
+
+            UsuarioEncontrado = new Usuario();
+            UsuarioEncontrado.Id = Reader.GetInt32("Id");
+             
+           if (!Reader.IsDBNull(Reader.GetOrdinal("Nome")))
+             UsuarioEncontrado.Nome = Reader.GetString("Nome");
+           
+           if (!Reader.IsDBNull(Reader.GetOrdinal("Login")))
+             UsuarioEncontrado.Login = Reader.GetString("Login");
+
+           if (!Reader.IsDBNull(Reader.GetOrdinal("Senha")))
+             UsuarioEncontrado.Senha = Reader.GetString("Senha");
+
+            UsuarioEncontrado.DataNascimento = Reader.GetDateTime("DataNascimento");
+          }
+          
+          Conexao.Close();
+          return UsuarioEncontrado;
+        }
+
         public Usuario BuscarPorId(int Id){
           
           MySqlConnection Conexao = new MySqlConnection(DadosConexao);

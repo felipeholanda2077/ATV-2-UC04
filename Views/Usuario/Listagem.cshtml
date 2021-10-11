@@ -4,13 +4,14 @@
     ViewData["Title"] = "Listagem de usuários";
 }
 
-<table>
+<table class="table">
     <tr>
         <td>ID</td>
         <td>Nome</td>
         <td>Login</td>
         <td>Senha</td>
         <td>Data de Nascimento</td>
+        <td>Operações</td>
     </tr>
 
     @foreach (Usuario u in Model)
@@ -20,7 +21,11 @@
             <td>@u.Nome</td>
             <td>@u.Login</td>
             <td>@u.Senha</td>
-            <td>@u.DataNascimento</td>
+            <td>@u.DataNascimento.ToShortDateString()</td>
+            <td>
+                <a href="/Usuario/Editar?Id=@u.Id">Alterar</a> |
+                <a href="/Usuario/Excluir?Id=@u.Id" onclick="return confirm('Deseja mesmo Excluir este ítem');">Remover</a>
+            </td>
         </tr>
     }
 </table>
