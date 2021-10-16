@@ -22,6 +22,8 @@ namespace ATV_2_UC4.Controllers
         {
             UsuarioRepository ur = new UsuarioRepository();
             ur.TestarConexao();
+
+            
             
             return View();
         }
