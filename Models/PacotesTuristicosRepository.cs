@@ -9,45 +9,7 @@ namespace ATV_2_UC4.Models
         private const string DadosConexao = "Database=atv2_uc04; Data Source=localhost; User Id=root;";
 
 
-          public PacotesTuristicos ValidarLogin(PacotesTuristicos pt){
-          
-          MySqlConnection Conexao = new MySqlConnection(DadosConexao);
-          Conexao.Open();
-          
-          String Query = "select * from PacotesTuristicos where Nome=@Nome and Origem=@Origem";
 
-          MySqlCommand Comandopt = new MySqlCommand(Query,Conexao);
-
-          Comandopt.Parameters.AddWithValue("@Nome",pt.Nome);
-          Comandopt.Parameters.AddWithValue("@Origem",pt.Origem);
-
-          MySqlDataReader ReaderPt = Comandopt.ExecuteReader();
-
-          PacotesTuristicos PacoteEncontrado = null;
-          if (ReaderPt.Read()){
-
-            PacoteEncontrado = new PacotesTuristicos();
-            PacoteEncontrado.Id = ReaderPt.GetInt32("Id");
-             
-           if (!ReaderPt.IsDBNull(ReaderPt.GetOrdinal("Nome")))
-             PacoteEncontrado.Nome = ReaderPt.GetString("Nome");
-           
-           if (!ReaderPt.IsDBNull(ReaderPt.GetOrdinal("Origem")))
-             PacoteEncontrado.Origem = ReaderPt.GetString("Origem");
-
-           if (!ReaderPt.IsDBNull(ReaderPt.GetOrdinal("Destino")))
-             PacoteEncontrado.Destino = ReaderPt.GetString("Destino");
-
-           if (!ReaderPt.IsDBNull(ReaderPt.GetOrdinal("Atrativos")))
-             PacoteEncontrado.Atrativos = ReaderPt.GetString("Atrativos");
-
-            PacoteEncontrado.Saida = ReaderPt.GetDateTime("Saida");
-            PacoteEncontrado.Retorno = ReaderPt.GetDateTime("Retorno");
-          }
-          
-          Conexao.Close();
-          return PacoteEncontrado;
-        }
 
         public PacotesTuristicos BuscarPorIdPT(int Id){
           

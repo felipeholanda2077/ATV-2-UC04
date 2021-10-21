@@ -34,6 +34,7 @@ namespace ATV_2_UC4.Controllers
         }
         
        public IActionResult ExcluirPT(int Id){
+
            PacotesTuristicosRepository pr = new PacotesTuristicosRepository();
            PacotesTuristicos PacoteEncontrado = pr.BuscarPorIdPT(Id);
            pr.ExcluirPT(PacoteEncontrado);

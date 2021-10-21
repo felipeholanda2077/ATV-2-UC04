@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using ATV_2_UC4.Models;
 
@@ -26,17 +27,32 @@ namespace ATV_2_UC4.Controllers
               ViewBag.Mensagem = "Falha no Login!";
               return View();
             } else {
-              ViewBag.Mensagem = "Sucesso no Login!";
-              return View();
+              
+              //registrar na sessao: ID e nome do Usuario logado
+              HttpContext.Session.SetInt32("IdUsuario",userEncontrado.Id);
+              HttpContext.Session.SetString("NomeUsuario",userEncontrado.Nome);
+
+              return RedirectToAction("Listagem","Usuario");
             }
         
         }
 
+        public IActionResult Logout(){
+            HttpContext.Session.Clear(); //Limpa todos os dados registrados na sessao
+            return RedirectToAction("Login","Usuario");
+        }
+
         public IActionResult Cadastro(){
+
             return View();
         }
 
        public IActionResult Editar(int Id){
+
+           if (HttpContext.Session.GetInt32("idUsuario")==null){ //Valida se o usuario esta logado?
+                return RedirectToAction("Login","Usuario");
+            }
+
            UsuarioRepository ur = new UsuarioRepository();
            Usuario userEncontrado = ur.BuscarPorId(Id);
            return View(userEncontrado);
@@ -44,7 +60,7 @@ namespace ATV_2_UC4.Controllers
 
        [HttpPost]
         public IActionResult  Editar(Usuario u){
-
+            
             UsuarioRepository ur = new UsuarioRepository();
 
             ur.Editar(u);
@@ -54,6 +70,11 @@ namespace ATV_2_UC4.Controllers
         }
         
        public IActionResult Excluir(int Id){
+           
+           if (HttpContext.Session.GetInt32("idUsuario")==null){ //Valida se o usuario esta logado?
+                return RedirectToAction("Login","Usuario");
+            }
+           
            UsuarioRepository ur = new UsuarioRepository();
            Usuario userEncontrado = ur.BuscarPorId(Id);
            ur.Excluir(userEncontrado);
@@ -74,6 +95,7 @@ namespace ATV_2_UC4.Controllers
 
         public IActionResult Listagem(){
 
+           
             UsuarioRepository ur = new UsuarioRepository();
             List<Usuario> Lista = ur.Listar();
             return View(Lista);
