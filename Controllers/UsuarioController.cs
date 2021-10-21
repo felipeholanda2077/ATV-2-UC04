@@ -100,5 +100,6 @@ namespace ATV_2_UC4.Controllers
             List<Usuario> Lista = ur.Listar();
             return View(Lista);
         }
+
     }
 }
