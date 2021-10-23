@@ -105,7 +105,7 @@ namespace ATV_2_UC4.Models
             MySqlCommand Comandopt = new MySqlCommand(Query, Conexao);
 
             Comandopt.Parameters.AddWithValue("@Nome", pt.Nome);
-            Comandopt.Parameters.AddWithValue("@Login", pt.Origem);
+            Comandopt.Parameters.AddWithValue("@Origem", pt.Origem);
             Comandopt.Parameters.AddWithValue("@Destino", pt.Destino);
             Comandopt.Parameters.AddWithValue("@Atrativos", pt.Atrativos);
             Comandopt.Parameters.AddWithValue("@Saida", pt.Saida);

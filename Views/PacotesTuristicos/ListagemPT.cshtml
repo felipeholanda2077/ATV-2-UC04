@@ -9,7 +9,7 @@
 
 <table class="table table table-dark">
     <tr>
-        <td>ID</td>
+        <td>Id</td>
         <td>Nome</td>
         <td>Origem</td>
         <td>Destino</td>
@@ -18,19 +18,20 @@
         <td>Retorno</td>
     </tr>
 
-    @foreach (PacotesTuristicos u in Model)
+    @foreach (PacotesTuristicos pt in Model)
     {
         <tr>
-            <td>@u.Id</td>
-            <td>@u.Nome</td>
-            <td>@u.Origem</td>
-            <td>@u.Destino</td>
-            <td>@u.Atrativos</td>
-            <td>@u.Saida</td>
-            <td>@u.Retorno</td>
+            <td>@pt.Id</td>
+            <td>@pt.Nome</td>
+            <td>@pt.Origem</td>
+            <td>@pt.Destino</td>
+            <td>@pt.Atrativos</td>
+            <td>@pt.Saida.ToShortDateString()</td>
+            <td>@pt.Retorno.ToShortDateString()</td>
+            <td>@pt.Usuario</td>
             <td>
-                <a href="/PacotesTuristicos/Editar?Id=@u.Id">Alterar</a> |
-                <a href="/PacotesTuristicos/Excluir?Id=@u.Id" onclick="return confirm('Deseja mesmo Excluir este ítem');">Remover</a>
+                <a href="/PacotesTuristicos/Editar?Id=@pt.Id">Alterar</a> |
+                <a href="/PacotesTuristicos/Excluir?Id=@pt.Id" onclick="return confirm('Deseja mesmo Excluir este ítem');">Remover</a>
             </td>
         </tr>
     }

@@ -9,51 +9,57 @@ using ATV_2_UC4.Models;
 
 namespace ATV_2_UC4.Controllers
 {
-    public class PacotesTuristicosController: Controller
+    public class PacotesTuristicosController : Controller
     {
-        
-        public IActionResult CadastrarPT(){
+
+        public IActionResult CadastrarPT()
+        {
             return View();
         }
 
-         public IActionResult EditarPT(int Id){
-           PacotesTuristicosRepository pr = new PacotesTuristicosRepository();
-           PacotesTuristicos PacoteEncontrado = pr.BuscarPorIdPT(Id);
-           return View(PacoteEncontrado);
-       }
+        public IActionResult EditarPT(int Id)
+        {
+            PacotesTuristicosRepository pr = new PacotesTuristicosRepository();
+            PacotesTuristicos PacoteEncontrado = pr.BuscarPorIdPT(Id);
+            return View(PacoteEncontrado);
+        }
 
-       [HttpPost]
-        public IActionResult  EditarPT(PacotesTuristicos Pacote){
+        [HttpPost]
+        public IActionResult EditarPT(PacotesTuristicos Pacote)
+        {
 
             PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
 
             pt.EditarPT(Pacote);
 
-            return RedirectToAction("ListagemPT","PacotesTuristicos");
+            return RedirectToAction("ListagemPT", "PacotesTuristicos");
 
         }
-        
-       public IActionResult ExcluirPT(int Id){
 
-           PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
-           PacotesTuristicos PacoteEncontrado = pt.BuscarPorIdPT(Id);
-           pt.ExcluirPT(PacoteEncontrado);
-           return RedirectToAction("ListagemPT","PacotesTuristicos");
-       }
+        public IActionResult ExcluirPT(int Id)
+        {
+
+            PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
+            PacotesTuristicos PacoteEncontrado = pt.BuscarPorIdPT(Id);
+            pt.ExcluirPT(PacoteEncontrado);
+            return RedirectToAction("ListagemPT", "PacotesTuristicos");
+        }
 
 
         [HttpPost]
-        public IActionResult  CadastroPT(PacotesTuristicos Pacote){
+        public IActionResult CadastroPT(PacotesTuristicos Pacote)
+        {
 
             PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
 
             pt.CadastrarPT(Pacote);
 
-            return RedirectToAction("ListagemPT","PacotesTuristicos");
+            return RedirectToAction("ListagemPT", "PacotesTuristicos");
 
         }
 
-        public IActionResult ListagemPT(){
+        public IActionResult ListagemPT()
+        {
 
             PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
             List<PacotesTuristicos> ListaPT = pt.ListarPT();
