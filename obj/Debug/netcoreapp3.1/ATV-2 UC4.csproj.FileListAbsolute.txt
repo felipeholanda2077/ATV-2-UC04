@@ -42,4 +42,4 @@ C:\Users\felip\OneDrive\Documentos\Conjunto ATV-2\ATV-2 UC4\obj\Debug\netcoreapp
 C:\Users\felip\OneDrive\Documentos\Conjunto ATV-2\ATV-2 UC4\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Login.cshtml.g.cs
 C:\Users\felip\OneDrive\Documentos\Conjunto ATV-2\ATV-2 UC4\obj\Debug\netcoreapp3.1\Razor\Views\PacotesTuristicos\CadastrarPT.cshtml.g.cs
 C:\Users\felip\OneDrive\Documentos\Conjunto ATV-2\ATV-2 UC4\obj\Debug\netcoreapp3.1\Razor\Views\PacotesTuristicos\ListagemPT.cshtml.g.cs
-C:\Users\felip\OneDrive\Documentos\Conjunto ATV-2\ATV-2 UC4\obj\Debug\netcoreapp3.1\Razor\Views\PacotesTuristicos\EditarPacotes.cshtml.g.cs
+C:\Users\felip\OneDrive\Documentos\Conjunto ATV-2\ATV-2 UC4\obj\Debug\netcoreapp3.1\Razor\Views\PacotesTuristicos\EditarPT.cshtml.g.cs

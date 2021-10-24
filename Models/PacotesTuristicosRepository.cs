@@ -8,13 +8,13 @@ namespace ATV_2_UC4.Models
     {
         private const string DadosConexao = "Database=atv2_uc04; Data Source=localhost; User Id=root;";
 
-        public PacotesTuristicos BuscarPorIdPT(int Id)
+        public PacotesTuristicos BuscarPorId(int Id)
         {
 
             MySqlConnection Conexao = new MySqlConnection(DadosConexao);
             Conexao.Open();
 
-            String Query = "select * from PacoteTuristicos where Id=@Id";
+            String Query = "select * from PacotesTuristicos where Id=@Id";
 
             MySqlCommand Comandopt = new MySqlCommand(Query, Conexao);
 

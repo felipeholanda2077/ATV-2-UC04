@@ -19,8 +19,8 @@ namespace ATV_2_UC4.Controllers
 
         public IActionResult EditarPT(int Id)
         {
-            PacotesTuristicosRepository pr = new PacotesTuristicosRepository();
-            PacotesTuristicos PacoteEncontrado = pr.BuscarPorIdPT(Id);
+            PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
+            PacotesTuristicos PacoteEncontrado = pt.BuscarPorId(Id);
             return View(PacoteEncontrado);
         }
 
@@ -40,7 +40,7 @@ namespace ATV_2_UC4.Controllers
         {
 
             PacotesTuristicosRepository pt = new PacotesTuristicosRepository();
-            PacotesTuristicos PacoteEncontrado = pt.BuscarPorIdPT(Id);
+            PacotesTuristicos PacoteEncontrado = pt.BuscarPorId(Id);
             pt.ExcluirPT(PacoteEncontrado);
             return RedirectToAction("ListagemPT", "PacotesTuristicos");
         }

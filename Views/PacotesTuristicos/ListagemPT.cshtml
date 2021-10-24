@@ -28,10 +28,9 @@
             <td>@pt.Atrativos</td>
             <td>@pt.Saida.ToShortDateString()</td>
             <td>@pt.Retorno.ToShortDateString()</td>
-            <td>@pt.Usuario</td>
             <td>
-                <a href="/PacotesTuristicos/Editar?Id=@pt.Id">Alterar</a> |
-                <a href="/PacotesTuristicos/Excluir?Id=@pt.Id" onclick="return confirm('Deseja mesmo Excluir este ítem');">Remover</a>
+                <a href="/PacotesTuristicos/EditarPT?Id=@pt.Id">Alterar</a> |
+                <a href="/PacotesTuristicos/ExcluirPT?Id=@pt.Id" onclick="return confirm('Deseja mesmo Excluir este ítem');">Remover</a>
             </td>
         </tr>
     }
