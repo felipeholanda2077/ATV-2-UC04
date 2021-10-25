@@ -25,7 +25,7 @@
 
   - [**VS CODE**](https://code.visualstudio.com/)
   - [**.NET**](https://dotnet.microsoft.com/download)
-  - [**PHP**](https://localrost)
+  - [**MyPHPAdmim**](https://localhost)
 
 <br>
 
