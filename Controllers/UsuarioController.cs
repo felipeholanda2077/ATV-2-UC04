@@ -71,10 +71,6 @@ namespace ATV_2_UC4.Controllers
         
        public IActionResult Excluir(int Id){
            
-           if (HttpContext.Session.GetInt32("idUsuario")==null){ //Valida se o usuario esta logado?
-                return RedirectToAction("Login","Usuario");
-            }
-           
            UsuarioRepository ur = new UsuarioRepository();
            Usuario userEncontrado = ur.BuscarPorId(Id);
            ur.Excluir(userEncontrado);
